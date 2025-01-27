@@ -144,3 +144,20 @@
 [LCSV-2](https://langchain.atlassian.net/browse/LCSV-2) 초기 환경 설정
 
 [LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
+<br>
+
+## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/27-2
+
+### 하위 작업
+
+[LCSV-41](https://langchain.atlassian.net/browse/LCSV-41) LLM 서비스 응답을 토큰화하여 수신
+
+[LCSV-42](https://langchain.atlassian.net/browse/LCSV-42) LLM 서비스 요청과 클라이언트 응답을 Streaming 방식으로 변경
+
+### 에픽
+
+[LCSV-1](https://langchain.atlassian.net/browse/LCSV-1) LLM API Server 구현
+
+### 작업
+
+[LCSV-40](https://langchain.atlassian.net/browse/LCSV-40) 클라이언트는 스트리밍을 통한 빠른 응답을 제공 받을 수 있다
