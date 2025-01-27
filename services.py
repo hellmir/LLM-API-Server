@@ -13,7 +13,10 @@ def generate_response(llm_type: str, template_content: str, variables: str):
         template=TEMPLATE_HEADER + template_content + TEMPLATE_FOOTER
     )
     llm = get_llm(llm_type)
-
     chain = prompt | llm
 
-    return chain.invoke(input={"variables": variables})
+    for chunk in chain.stream({"variables": variables}):
+        if hasattr(chunk, "content"):
+            yield chunk.content
+        else:
+            yield str(chunk)
