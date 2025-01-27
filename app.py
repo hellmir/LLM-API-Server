@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from routers import router
 
 app = FastAPI(
-    title="LLM 서버 API",
-    description="LLM 서비스를 제공하는 서버 API입니다.",
+    title="생성형 AI 서버 API",
+    description="생성형 AI 서비스를 제공하는 서버 API입니다.",
     version="1.0",
 )
 
