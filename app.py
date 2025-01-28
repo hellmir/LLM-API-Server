@@ -11,7 +11,7 @@ load_dotenv()
 app = FastAPI(
     title="생성형 AI 서버 API",
     description="생성형 AI 서비스를 제공하는 서버 API입니다.",
-    version="2.0"
+    version="2.1"
 )
 
 app.add_middleware(

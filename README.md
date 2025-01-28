@@ -160,4 +160,33 @@
 
 ### 작업
 
+[LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
+
 [LCSV-40](https://langchain.atlassian.net/browse/LCSV-40) 클라이언트는 스트리밍을 통한 빠른 응답을 제공 받을 수 있다
+<br>
+
+## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/28
+
+### 하위 작업
+
+[LCSV-44](https://langchain.atlassian.net/browse/LCSV-44) SSE를 통해 서버로부터 토큰을 지속적으로 Push 받을 수 있는 엔드포인트\(/streaming/sse\) 추가
+
+[LCSV-45](https://langchain.atlassian.net/browse/LCSV-45) 기존 엔드포인트의 리소스명을 streaming으로 변경
+
+[LCSV-46](https://langchain.atlassian.net/browse/LCSV-46) 기존 엔드포인트와 추가된 엔드포인트의 공통 예외를 처리하기 위한 global\_exception\_handler 추가
+
+[LCSV-48](https://langchain.atlassian.net/browse/LCSV-48) CORS 활성화
+
+### 스토리
+
+[LCSV-43](https://langchain.atlassian.net/browse/LCSV-43) 클라이언트는 엔드포인트로부터 최소 토큰 단위의 Stream 데이터를 지속적으로 Push 받을 수 있다
+
+[LCSV-47](https://langchain.atlassian.net/browse/LCSV-47) 클라이언트는 브라우저를 통해 LLM 서버 엔드포인트를 이용할 수 있다
+
+### 에픽
+
+[LCSV-1](https://langchain.atlassian.net/browse/LCSV-1) LLM API Server 구현
+
+### 작업
+
+[LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
