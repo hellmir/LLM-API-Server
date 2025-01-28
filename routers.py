@@ -1,12 +1,13 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
+from global_exception_handler import throw_unauthorized_exception
 from services import generate_response
 
-router = APIRouter()
+router = APIRouter(prefix="/streaming")
 
 
 class LLMRequest(BaseModel):
@@ -24,7 +25,7 @@ from fastapi.responses import StreamingResponse
 
 
 @router.post(
-    "/llm",
+    "",
     summary="LLM 스트리밍 서비스 이용",
     description="""
     다음 파라미터를 전송해 LLM 서비스를 이용할 수 있습니다. 응답은 토큰화하여 Stream 형태로 제공됩니다.
@@ -37,10 +38,7 @@ from fastapi.responses import StreamingResponse
 def invoke_llm(request: LLMRequest):
     load_dotenv()
     if request.secret_key != os.environ.get("SECRET_KEY"):
-        raise HTTPException(
-            status_code=401,
-            detail="[인증 실패] Secret Key가 일치하지 않습니다. 확인 후 다시 시도해 주세요."
-        )
+        throw_unauthorized_exception()
 
     def response_generator():
         for chunk in generate_response(
@@ -49,3 +47,28 @@ def invoke_llm(request: LLMRequest):
             yield chunk
 
     return StreamingResponse(response_generator(), media_type="text/plain")
+
+
+@router.post(
+    "/sse",
+    summary="LLM 스트리밍 SSE 서비스 이용",
+    description="""
+    다음 파라미터를 전송해 LLM 서비스를 이용할 수 있습니다. 응답은 최소 단위로 토큰화하여 SSE를 통한 Stream 형태로 제공됩니다.
+    \n- llm_type: LLM 모델 유형(clovax, chatgpt, llama): 미입력 시 기본 모델 사용
+    \n- template: 요청 프롬프트(요구사항)
+    \n- variables: 요청 프롬프트에 적용할 조건
+    \n- Secret Key: 사용자 인증을 위한 비밀 키
+                """
+)
+def invoke_llm_sse(request: LLMRequest):
+    load_dotenv()
+    if request.secret_key != os.environ.get("SECRET_KEY"):
+        throw_unauthorized_exception()
+
+    def response_generator():
+        for chunk in generate_response(
+                request.llm_type, request.template, request.variables
+        ):
+            yield f"data: {chunk}\n\n"
+
+    return StreamingResponse(response_generator(), media_type="text/event-stream")
