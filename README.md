@@ -1,15 +1,21 @@
-# ![ai](https://github.com/user-attachments/assets/0183c7fc-c7a7-479b-8108-4c68de3dffa7) 생성형 AI API Server<br><br>
+# ![ai](https://github.com/user-attachments/assets/0183c7fc-c7a7-479b-8108-4c68de3dffa7) 생성형 AI Streaming Server<br><br>
 
 ## 📋 프로젝트 설명
 
-### 여러 생성형 AI 모델의 API를 제공하는 서버
+### 다양한 생성형 AI 모델의 스트리밍 서비스를 제공하는 서버
+- Mistral Large
+- Llama3.3
 - HCX-003
-- Llama3.2
+- Gemini 1.5 Pro
 - GPT 3.5 Turbo
   <br><br>
 
 ## 📅 프로젝트 기간
 <b>2025. 01. 26 ~ 2025. 01. 28</b>
+<br><br>
+
+## ![Image](https://github.com/user-attachments/assets/1838d6b9-69ff-43fe-80b1-b1e39709cef9) 모델 추가 및 리팩터링
+<b>2025. 01. 30</b>
 <br><br>
 
 ## 👫 구성원
@@ -31,10 +37,12 @@
 - Starlette
   <br>
 
-## AI Model
-- HCX-003
-- Llama3.2
-- GPT 3.5 Turbo
+## AI Model Packages
+- ChatMistralAI
+- SambaNovaCloud
+- ChatClovaX
+- ChatGoogleGenerativeAI
+- ChatOpenAI
 
 ## DevOps
 
@@ -145,7 +153,7 @@
 [LCSV-2](https://langchain.atlassian.net/browse/LCSV-2) 초기 환경 설정
 
 [LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
-<br>
+<br><br>
 
 ## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/27-2
 
@@ -164,7 +172,7 @@
 [LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
 
 [LCSV-40](https://langchain.atlassian.net/browse/LCSV-40) 클라이언트는 스트리밍을 통한 빠른 응답을 제공 받을 수 있다
-<br>
+<br><br>
 
 ## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/28
 
@@ -191,3 +199,70 @@
 ### 작업
 
 [LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
+<br><br>
+
+## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/30
+
+### 하위 작업
+
+[LCSV-50](https://langchain.atlassian.net/browse/LCSV-50) API 키 발급
+
+[LCSV-51](https://langchain.atlassian.net/browse/LCSV-51) ChatGoogle 패키지 설치
+
+[LCSV-52](https://langchain.atlassian.net/browse/LCSV-52) gemini-1.5-pro 모델 적용
+
+[LCSV-54](https://langchain.atlassian.net/browse/LCSV-54) API 키 발급
+
+[LCSV-55](https://langchain.atlassian.net/browse/LCSV-55) SambaNovaCloud 패키지 설치
+
+[LCSV-56](https://langchain.atlassian.net/browse/LCSV-56) Llama-3.3-70B-Instruct 모델 적용
+
+[LCSV-57](https://langchain.atlassian.net/browse/LCSV-57) ChatOllama 패키지 제거
+
+[LCSV-58](https://langchain.atlassian.net/browse/LCSV-58) ChatOllama 기반 Llama3.2 서비스 제거
+
+[LCSV-59](https://langchain.atlassian.net/browse/LCSV-59) 기본 모델을 HCX-003에서 Llama3.3으로 변경
+
+[LCSV-61](https://langchain.atlassian.net/browse/LCSV-61) LLM 서비스 인스턴스 생성 모듈 분리 -> llm\_generator
+
+[LCSV-62](https://langchain.atlassian.net/browse/LCSV-62) 기본 모델 설정 함수 분리
+
+[LCSV-63](https://langchain.atlassian.net/browse/LCSV-63) .env 파일의 환경변수 순서 정리
+
+[LCSV-65](https://langchain.atlassian.net/browse/LCSV-65) API 키 발급
+
+[LCSV-66](https://langchain.atlassian.net/browse/LCSV-66) ChatMistralAI 패키지 설치
+
+[LCSV-67](https://langchain.atlassian.net/browse/LCSV-67) mistral-large-latest 모델 적용
+
+[LCSV-68](https://langchain.atlassian.net/browse/LCSV-68) mistral-large-latest를 기본 모델로 사용하도록 변경
+
+[LCSV-69](https://langchain.atlassian.net/browse/LCSV-69) Swagger 문서 업데이트
+
+[LCSV-71](https://langchain.atlassian.net/browse/LCSV-71) variables 키를 options로 변경
+
+[LCSV-72](https://langchain.atlassian.net/browse/LCSV-72) 0 ~ n 개의 여러 옵션들을 각각 키와 배열값 형태로 제공할 수 있도록 변경
+
+[LCSV-73](https://langchain.atlassian.net/browse/LCSV-73) LLM 모델과 옵션을 전송하지 않아도 작동하도록 변경
+
+[LCSV-74](https://langchain.atlassian.net/browse/LCSV-74) Swagger 문서 업데이트
+
+### 스토리
+
+[LCSV-49](https://langchain.atlassian.net/browse/LCSV-49) 클라이언트는 gemini-1.5-pro 모델 API를 사용할 수 있다
+
+[LCSV-53](https://langchain.atlassian.net/browse/LCSV-53) 클라이언트는 ChatOllama 대신 SambaNovaCloud를 통해 Llama3.3 모델 API를 사용할 수 있다
+
+[LCSV-64](https://langchain.atlassian.net/browse/LCSV-64) 클라이언트는 mistral-large 모델 API를 사용할 수 있다
+
+[LCSV-70](https://langchain.atlassian.net/browse/LCSV-70) 사용자는 LLM 서비스 요청 시 여러 옵션들을 Key: Array Value 형태로 전송할 수 있다
+
+### 에픽
+
+[LCSV-1](https://langchain.atlassian.net/browse/LCSV-1) LLM API Server 구현
+
+### 작업
+
+[LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
+
+[LCSV-60](https://langchain.atlassian.net/browse/LCSV-60) llm\_picker 모듈 리팩터링
