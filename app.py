@@ -10,7 +10,17 @@ from routers import router
 load_dotenv()
 app = FastAPI(
     title="생성형 AI 서버 API",
-    description="생성형 AI 서비스를 제공하는 서버 API입니다.",
+    description="""
+    \n ## 생성형 AI 서비스를 제공하는 서버 API입니다.
+    \n ### 제공 모델
+    \n <b>
+    \n  - mistral
+    \n  - llama
+    \n  - clovax
+    \n  - gemini
+    \n  - gpt
+    \n </b>
+    """,
     version="2.1"
 )
 
