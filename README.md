@@ -171,7 +171,7 @@
 
 [LCSV-39](https://langchain.atlassian.net/browse/LCSV-39) README.md 추가
 
-[LCSV-40](https://langchain.atlassian.net/browse/LCSV-40) 클라이언트는 스트리밍을 통한 빠른 응답을 제공 받을 수 있다
+[LCSV-40](https://langchain.atlassian.net/browse/LCSV-40) 클라이언트는 스트리밍을 통한 빠른 응답을 제공받을 수 있다
 <br><br>
 
 ## 릴리스 정보 - LangChain Service - LlmApiServerRelease01/28
